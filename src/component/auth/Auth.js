@@ -19,7 +19,7 @@ function Auth() {
         </Box>
         {isLogin ? <Login /> : <Signup />}
         <Box sx={{ marginTop: 4 }}>
-          <Button variant="outlined" color="primary" fullWidth onClick={toggleForm}>
+          <Button variant="contained" color="primary" fullWidth onClick={toggleForm}>
             {isLogin ? 'Switch to Signup' : 'Switch to Login'}
           </Button>
         </Box>

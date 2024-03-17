@@ -10,6 +10,8 @@ import Button from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
 import { alpha, styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import CartView from './../cartView/CartView';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,19 +57,33 @@ const NavigationBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem('token');
     navigate('/login');
   };
+  const handleCartItem = () => {
+    navigate('/CartView');
+    console.log("handle")
+  }
+
+  const handleHomePage = () => {
+    navigate('/home');
+  }
+
+  const handleUserPage = () => {
+    navigate('/user');
+    console.log("handleUserPage::");
+  }
+
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={handleHomePage}>
           Wowman
         </Typography>
-        <IconButton color="inherit">
+        <IconButton color="inherit" onClick={handleUserPage}>
           <AccountCircleIcon />
         </IconButton>
-        <IconButton color="inherit">
+        <IconButton color="inherit" onClick={handleCartItem}>
           <ShoppingCartIcon />
         </IconButton>
         <Search>
