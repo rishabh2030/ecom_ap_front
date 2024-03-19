@@ -35,9 +35,22 @@ const ProductView = () => {
 
 
 
-    // const handleRatingChange = (event, newValue) => {
-    //     setRatingValue(newValue);
-    // };
+    const handleAddToCart = async (product) => {
+        console.log("product.addToCart", product.name)
+        try {
+            const data = {
+                product_id: product.id,
+                quantity: 1,
+            };
+            const token = localStorage.getItem('token');
+            const response = await axios.post('http://localhost:8000/api/webview/add_cart/', data, { headers: { Authorization: `Bearer ${token}` } });
+            if (response.status === 200) {
+                console.log("Added to cart");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const HandleReview = async (product) => {
         console.log('Rating Value:', value);
@@ -80,7 +93,7 @@ const ProductView = () => {
                             {product.description}
                         </Typography>
                         <Typography variant="h6">Price: ₹{product.price}</Typography>
-                        <Button variant="contained" color="primary">
+                        <Button variant="contained" color="primary" onClick={() => handleAddToCart(product)}>
                             Add to Cart
                         </Button>
                         <Stack spacing={2} style={{ paddingTop: '20px' }}>
