@@ -50,7 +50,7 @@ const ProductCard = ({ products }) => {
                                 {product.description.length > 25 ? `${product.description.substring(0, 25)}...` : product.description}
                             </Typography>
                             <Typography variant="body2" color="text.primary">
-                                Price: {product.price}
+                                Price: ₹{product.price}
                             </Typography>
                             <Button onClick={() => handleAddToCart(product)} variant="contained" color="primary">
                                 Add to Cart

@@ -5,6 +5,8 @@ import Home from './component/home/Home';
 import CartView from './component/cartView/CartView';
 import User from './component/user/User';
 import ProductView from './component/productView/ProductView';
+import PlaceOrder from './component/order/PlaceOrder';
+import SearchPage from './component/search_page/SearchPage';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/CartView" element={<CartView />} />
           <Route path="/user" element={<User />} />
           <Route path="/products" element={<ProductView />} />
+          <Route path="/place_order" element={<PlaceOrder />} />
+          <Route path="/search" element={<SearchPage/>} />
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </div>

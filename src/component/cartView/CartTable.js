@@ -19,6 +19,10 @@ const CartTable = ({ cart, total }) => {
         }
     };
 
+    const HandlePlaceOrder = () => {
+        navigate('/place_order');
+    }
+
     return (
         <TableContainer component={Paper}>
             <Table>
@@ -35,7 +39,7 @@ const CartTable = ({ cart, total }) => {
                         <TableRow key={index}>
                             <TableCell>{item.product.name}</TableCell>
                             <TableCell>{item.product.quantity}</TableCell>
-                            <TableCell>{item.product.price}</TableCell>
+                            <TableCell>₹{item.product.price}</TableCell>
                             <TableCell>
                                 <Button variant="contained" onClick={() => HandleActions(item.product.id)}>Delete</Button>
                             </TableCell>
@@ -46,7 +50,7 @@ const CartTable = ({ cart, total }) => {
                     <TableRow>
                         <TableCell colSpan={3}>Total: {total}</TableCell>
                         <TableCell>
-                            <Button variant="contained">Place Order</Button>
+                            {total !== 0 && <Button variant="contained" onClick={HandlePlaceOrder}>Place Order</Button>}
                         </TableCell>
                     </TableRow>
                 </TableFooter>

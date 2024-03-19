@@ -19,7 +19,7 @@ const Signup = () => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/user/register/', { name, email, dob, password });
       if (response.status === 200) {
-        localStorage.setItem('token', response.data.access_token);
+        localStorage.setItem('token', response.data.result.access_token);
         navigate('/home');
       }
     } catch (error) {

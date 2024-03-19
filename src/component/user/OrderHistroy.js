@@ -23,9 +23,9 @@ const OrderHistory = ({ products }) => {
                 <TableBody>
                     {products.map((item, index) => (
                         <TableRow key={index}>
-                            <TableCell>{item.product}</TableCell>
+                            <TableCell>{item.product_name}</TableCell>
                             <TableCell>{item.quantity}</TableCell>
-                            <TableCell>{item.orginal_price}</TableCell>
+                            <TableCell>₹{item.orginal_price}</TableCell>
                             <TableCell>{item.address.city}</TableCell>
                             <TableCell>{item.address.address_line1}</TableCell>
                             <TableCell>{item.payment_method}</TableCell>
