@@ -48,7 +48,7 @@ const CartTable = ({ cart, total }) => {
                 </TableBody>
                 <TableFooter>
                     <TableRow>
-                        <TableCell colSpan={3}>Total: {total}</TableCell>
+                        <TableCell colSpan={3}>Total: ₹{total}</TableCell>
                         <TableCell>
                             {total !== 0 && <Button variant="contained" onClick={HandlePlaceOrder}>Place Order</Button>}
                         </TableCell>
